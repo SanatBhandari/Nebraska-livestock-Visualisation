@@ -1,7 +1,7 @@
 <?php
 $servername = "cse.unl.edu";
 $username = "sbhandari";
-$password = "dg4:fA";
+$password = "******";
 $dbname = "sbhandari";
 
 $year = $_POST['val'];
