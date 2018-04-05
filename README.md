@@ -12,5 +12,5 @@ PHASE I<br>
 ● Using AJAX to pass the SQL values to AJAX and subsequently, pass it on to the necessary methods of the API <br>
 
 PHASE II<br>
-● Replacing the Google Maps API with an API that supports dynamic visualisation (such as arcs going from a place to another). A very good example of this is 'https://blueshift.io/flow-map.html' <br>
+● Replacing the Google Maps API with an API that supports dynamic visualisation (such as arcs going from a place to another). A very good example of this is https://blueshift.io/flow-map.html <br>
 ● Make the front end look prettier <br>
