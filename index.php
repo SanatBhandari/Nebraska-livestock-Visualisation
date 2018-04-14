@@ -22,7 +22,7 @@
 
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
-
+    <tr><td>Year</td></tr>
     <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
 
