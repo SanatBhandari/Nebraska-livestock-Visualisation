@@ -24,7 +24,8 @@
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
     <tr>
       <td>Year</td>
-       <td><input id="myRange" type="range" min="2002" max="2017" value="0"/></td>
+      <td><span id="rangeOut"></span> </td>
+      <td><input id = "myRange" type="range" min = "2002" max="2017" value="0"/></td>
     </tr>
     </div>
     <script>
