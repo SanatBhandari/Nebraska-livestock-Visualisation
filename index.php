@@ -3,6 +3,10 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="style.css">
+>>>>>>> d0c536f72ca21f0c33007e25997be7409752f1f6
     <title>Flight Animation</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -17,6 +21,7 @@
     <div id="map" class="map"></div>
     <div class="slidecontainer">
       <br>
+<<<<<<< HEAD
       <tr>
        <td>Year</td>
        <td><span id="myRange"></span>°</td>
@@ -24,6 +29,10 @@
      </tr>
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
+=======
+    <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
+    <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+>>>>>>> d0c536f72ca21f0c33007e25997be7409752f1f6
     </div>
     <script>
       var map = new ol.Map({
@@ -138,8 +147,11 @@
         }
       });
       map.addLayer(flightsLayer);
+<<<<<<< HEAD
       var slider = document.getElementById("myRange");
       var output = document.getElementById("demo");
+=======
+>>>>>>> d0c536f72ca21f0c33007e25997be7409752f1f6
     </script>
   </body>
 </html>
