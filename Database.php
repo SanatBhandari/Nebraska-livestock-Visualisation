@@ -15,6 +15,7 @@ if ($conn->connect_error) {
 
 //$year= slider's val
 $sql = "SELECT country, sum( year".$year." ) as sum_year".$year." FROM dwfi_data WHERE year".$year." != 0 and country!='World Total' and commodity IN ". $livestock_string ." group by country;" ;
+$sql2 = "SELECT latitude, longitude FROM sbhandari.countries";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
