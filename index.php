@@ -152,16 +152,7 @@
 
       var slider = document.getElementById("myRange");
       var output = document.getElementById("demo");
-      <style>
-      Year {
-        position: absolute;
-        top: 0px;
-        left: 5%;
-        height: 100 px;
-        width: 500px;
-        z-index: 99;
-      }
-    </style>
+  
     </script>
   </body>
 </html>
