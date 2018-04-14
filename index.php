@@ -10,15 +10,26 @@
   </head>
   <body bgcolor: "#000000">
     <div id="map" class="map" style="height:100%;"></div>
+    <div class="slidecontainer">
+      <br>
+    <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
+    <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+    </div>
     <script>
-      var map = new ol.Map({
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.Stamen({
-              layer: 'toner'
-            })
+    var map = new ol.Map({
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.Stamen({
+            layer: 'toner'
           })
-        ],
+        })
+      ],
+      target: 'map',
+      view: new ol.View({
+        center: [0, 0],
+        zoom: 2
+      })
+    });
 
         target: 'map',
 
@@ -37,6 +48,7 @@
           width: 2
         })
       });
+
 
       var flightsSource;
       var addLater = function(feature, timeout) {
@@ -129,5 +141,11 @@
       });
       map.addLayer(flightsLayer);
     </script>
+    <div id="regions_div" style="width: 1470px; height: 890px;"></div>
+    <div class="slidecontainer">
+      <br>
+    <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
+    <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+    </div>
   </body>
 </html>
