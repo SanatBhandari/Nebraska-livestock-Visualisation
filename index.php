@@ -33,7 +33,7 @@
 
       <td>Year </td>
       <td><span id="YearOut"></span> </td>
-      <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002"/></td>
+      <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002" color="black"/></td>
     </tr>
     </div>
     <script>
@@ -48,7 +48,9 @@
         target: 'map',
         view: new ol.View({
           center: [0, 0],
-          zoom: 2
+          zoom: 2,
+          minZoom: 2,
+          maxZoom: 2
         })
       });
 
@@ -152,7 +154,7 @@
 
       var slider = document.getElementById("myRange");
       var output = document.getElementById("demo");
-  
+
     </script>
   </body>
 </html>
