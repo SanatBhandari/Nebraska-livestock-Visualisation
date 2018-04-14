@@ -17,8 +17,13 @@
     <div id="map" class="map"></div>
     <div class="slidecontainer">
       <br>
-    <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
-    <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+      <tr>
+       <td>Year</td>
+       <td><span id="myRange"></span>°</td>
+       <td><input id="myRange" type="range" min="2002" max="2017" value="0"/></td>
+     </tr>
+    <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
+    <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
     </div>
     <script>
       var map = new ol.Map({
@@ -133,6 +138,8 @@
         }
       });
       map.addLayer(flightsLayer);
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("demo");
     </script>
   </body>
 </html>
