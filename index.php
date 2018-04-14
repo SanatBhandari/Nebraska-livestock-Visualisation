@@ -1,54 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Nebraska Stock Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>Flight Animation</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
     <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
   </head>
-  <body bgcolor: "#000000">
-    <div id="map" class="map" style="height:100%;"></div>
+  <body>
     <div class="slidecontainer">
       <br>
     <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
     </div>
+    <div id="map" class="map"></div>
     <script>
-    var map = new ol.Map({
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.Stamen({
-            layer: 'toner'
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.Stamen({
+              layer: 'toner'
+            })
           })
-        })
-      ],
-      target: 'map',
-      view: new ol.View({
-        center: [0, 0],
-        zoom: 2
-      })
-    });
-
+        ],
         target: 'map',
-
         view: new ol.View({
-          color: '#63B8FF',
           center: [0, 0],
-          //width: 64px,
           zoom: 2
         })
-
       });
 
       var style = new ol.style.Style({
         stroke: new ol.style.Stroke({
-          color: '#008000',
+          color: '#EAE911',
           width: 2
         })
       });
-
 
       var flightsSource;
       var addLater = function(feature, timeout) {
@@ -141,11 +134,5 @@
       });
       map.addLayer(flightsLayer);
     </script>
-    <div id="regions_div" style="width: 1470px; height: 890px;"></div>
-    <div class="slidecontainer">
-      <br>
-    <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
-    <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
-    </div>
   </body>
 </html>
