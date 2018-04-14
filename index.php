@@ -14,12 +14,12 @@
     <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
   </head>
   <body>
+    <div id="map" class="map"></div>
     <div class="slidecontainer">
       <br>
     <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
     </div>
-    <div id="map" class="map"></div>
     <script>
       var map = new ol.Map({
         layers: [
@@ -38,7 +38,7 @@
 
       var style = new ol.style.Style({
         stroke: new ol.style.Stroke({
-          color: '#EAE911',
+          color: '#228B22',
           width: 2
         })
       });
@@ -51,7 +51,7 @@
         }, timeout);
       };
 
-      var pointsPerMs = 0.1;
+      var pointsPerMs = 0.05;
       var animateFlights = function(event) {
         var vectorContext = event.vectorContext;
         var frameState = event.frameState;
