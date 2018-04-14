@@ -26,19 +26,20 @@
   <body>
     <div id="map" class="map"></div>
     <div class="slidecontainer">
-        <style>
-        #Label {
-          position: absolute;
-          top: 0px;
-          left: 5%;
-          height: 100 px;
-          width: 500px;
-          z-index: 99;
-        }
-      </style>
+
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
     <tr>
+      <style>
+      #Label {
+        position: absolute;
+        top: 0px;
+        left: 5%;
+        height: 100 px;
+        width: 500px;
+        z-index: 99;
+      }
+    </style>
       <td>Year </td>
       <td><span id="YearOut"></span> </td>
       <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002"/></td>
