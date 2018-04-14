@@ -15,6 +15,13 @@
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
     <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
+    <style>
+      table.controls td {
+        text-align: center;
+        padding: 2px 5px;
+        min-width: 60px;
+      }
+    </style>
   </head>
   <body>
     <div id="map" class="map"></div>
