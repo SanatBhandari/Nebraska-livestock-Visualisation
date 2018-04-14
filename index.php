@@ -30,16 +30,7 @@
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
     <tr>
-      <style>
-      #Label {
-        position: absolute;
-        top: 0px;
-        left: 5%;
-        height: 100 px;
-        width: 500px;
-        z-index: 99;
-      }
-    </style>
+
       <td>Year </td>
       <td><span id="YearOut"></span> </td>
       <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002"/></td>
@@ -161,7 +152,16 @@
 
       var slider = document.getElementById("myRange");
       var output = document.getElementById("demo");
-
+      <style>
+      Year {
+        position: absolute;
+        top: 0px;
+        left: 5%;
+        height: 100 px;
+        width: 500px;
+        z-index: 99;
+      }
+    </style>
     </script>
   </body>
 </html>
