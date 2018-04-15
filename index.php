@@ -254,9 +254,10 @@
         data: {
           'val': slider.value, 'livestock': livestock_string}
         ,
-        dataType:'json',
+        /* dataType:'json', */
         url: 'Database.php',
         success: function(query_result){
+			alert("Success!");
           console.log(JSON.parse(query_result));
           dataset = JSON.parse(query_result);
           map.addLayer(flightsLayer);
