@@ -11,7 +11,7 @@ body {
 
 <body>
 <input id="updateButton" type="button" value="Refresh Page" class="btn btn-primary center" onclick="location.reload();" />
-<a href="http://cse.unl.edu/~dshchur/" type="button" value="Go to page" class="btn btn-primary center"/>
+<a href="http://cse.unl.edu/~dshchur/" type="button" class="btn btn-primary center"/>Go to page</a>
 <div>
 <?php
 	shell_exec('cd /home/ugrad/dshchur/public_html/');
