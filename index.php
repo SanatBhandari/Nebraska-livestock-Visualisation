@@ -249,7 +249,6 @@
         }
       }
       livestock_string = livestock_string + ")";
-	  
       $.ajax({
         type: 'POST',
         data: {
