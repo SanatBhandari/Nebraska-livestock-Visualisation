@@ -265,9 +265,6 @@
           alert("Error: Could not find");
 		  alert("Lstock String: " + livestock_string);
 		  alert("Year: " + slider.value);
-		  alert("Error: " + error);
-		  alert("Status: " + status);
-		  alert("Request: " + request);
         }
       }
             );
