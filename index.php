@@ -16,33 +16,41 @@
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
     <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
     <style>
-      table.controls td {
-        text-align: center;
-        padding: 2px 5px;
-        min-width: 60px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map" class="map"></div>
-    <div class="slidecontainer">
+       #overlay {
+         position: absolute;
+         text-decoration: none;
+          color: white;
+          font-size: 11pt;
+          left: 400px;
+          font-weight: bold;
+          text-shadow: black 0.1em 0.1em 0.2em;
+         cursor: pointer; /* Add a pointer on hover */
+       }
+       table.controls td {
+         text-align: center;
+         padding: 2px 5px;
+         min-width: 60px;
+       }
+     </style>
+   </head>
+   <body>
+     <div id="map" class="map"></div>
+     <div id ="overlay">
 
-    <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
-    <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
-    <tr>
+     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
+     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
+     <tr>
 
-      <td>Year </td>
-      <td><span id="YearOut"></span> </td>
-      <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002" color="black"/></td>
-    </tr>
-    </div>
+       <td>Year </td>
+       <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002" color="black"/></td>
+       <td><output foo = "foo" on forminput = "value = foo.valueAsNumber;"/> </td>
+     </tr>
+   </div>
     <script>
       var map = new ol.Map({
         layers: [
           new ol.layer.Tile({
-            source: new ol.source.Stamen({
-              layer: 'terrain'
-            })
+            source: new ol.source.OSM
           })
         ],
         target: 'map',
