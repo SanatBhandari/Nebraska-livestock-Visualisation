@@ -37,6 +37,7 @@
      <div id="map" class="map"></div>
      <div id="overlay">
 
+     <p id="demo"></p>
      <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
      <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
      <tr>
@@ -159,10 +160,52 @@
         }
       });
       map.addLayer(flightsLayer);
+      </script>
 
+      <script>
       var slider = document.getElementById("myRange");
       var output = document.getElementById("demo");
 
+      function colorTrace(msg, color) {
+      console.log("%c" + msg, "color:" + color + ";font-weight:bold;");
+  }
+      colorTrace(slider.value, "green");
+      console.log(slider.value);
+      output.innerHTML = slider.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider.oninput = function() {
+        output.innerHTML = this.value;
+        // use ajax to pass values to the database.php page
+      }
+      console.log(slider.value);
+
+
+      function sendYear(){
+        var livestock_string = "(";
+        var livestock_values = document.getElementsByClassName('livestockSelector');
+        for (var i=0; i < livestock_values.length; i++){
+          if(livestock_values[i].checked) {
+            if (livestock_string.length == 1){
+              livestock_string = livestock_string + "'" + livestock_values[i].value + "'";
+            } else {
+              livestock_string = livestock_string + ", '" + livestock_values[i].value + "'";
+            }
+          }
+        }
+        livestock_string = livestock_string + ")";
+        $.ajax({
+          type: 'POST',
+          data: {'val': slider.value, 'livestock': livestock_string},
+          url: 'Database.php',
+          success: function(query_result){
+            console.log(JSON.parse(query_result));
+            dataset = JSON.parse(query_result);
+            //google.charts.setOnLoadCallback(drawRegionsMap);
+            map.addLayer(flightsLayer);
+          }
+        });
+      }
     </script>
   </body>
 </html>
