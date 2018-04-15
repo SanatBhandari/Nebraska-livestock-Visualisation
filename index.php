@@ -265,6 +265,9 @@
         ,
         error: function(request, status, error){
           alert("Error: Could not find");
+		  alert("Error: " + error);
+		  alert("Status: " + status);
+		  alert("Request: " + request);
         }
       }
             );
