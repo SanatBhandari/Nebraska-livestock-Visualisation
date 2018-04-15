@@ -37,7 +37,6 @@
    <body>
      <div id="map" class="map"></div>
      <div id="overlay">
-    <button style="font-size : 12px; font-family: 'verdana';" type="button" onclick="sendYear()">Submit</button>
 
      <p id="demo"></p>
      <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
@@ -120,7 +119,7 @@
             return response.json();
           }).then(function(json) {
             var locationsData = json.locations;
-            for (var i = 0; i < flightsData.length; i++) {
+            for (var i = 0; i < locationsData.length; i++) {
               var location = locationsData[i];
               var from = locationsData[0];
               var to = locationsData[1];
@@ -204,7 +203,7 @@
             console.log(JSON.parse(query_result));
             dataset = JSON.parse(query_result);
             //google.charts.setOnLoadCallback(drawRegionsMap);
-            map.addLayer(flightsLayer);
+            map.render();
           },
           error: function(request, status, error){
         alert("Error: Could not find");
