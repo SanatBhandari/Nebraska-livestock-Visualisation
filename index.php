@@ -42,7 +42,7 @@
  
     <div class="container">
         <button id="overlay" type="button" class="btn btn-lg btn-info collapsed" data-toggle="collapse" data-target="#dataMenu">Data Options</button>
-        <div id="dataMenu" class="collapse">
+        <div id="dataMenu" class="collapse overlay">
             <div class="panel-group">
                 <div class="panel panel-default">
                     <form id="lstock" action="Database.php" method="get">
@@ -111,21 +111,17 @@
                         <input class="livestockSelector" type = "checkbox" name ="l16" value="110313 Groats And Meal Of Corn (maize)">Starch, Corn (maize)<br>
                         </label>
                         </div>
-                        <button type="submit" class="btn btn-default" on-click="sendYear()" data-target="#lstock">Submit</button>
-                    </form>
-                    <div id="overlay">
-                        <button style="font-size : 12px; font-family: 'verdana';" type="button" onclick="sendYear()">Submit</button>
-
-                        <p id="demo"></p>
+						<div>
                         <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
-				 <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
+						<output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
                         <tr>
-
                             <td>Year </td>
                             <td><input id="myRange" type="range" min="2002" max="2017" value="2002" color="black" /></td>
                             <td><output foo="foo" on forminput="value = foo.valueAsNumber;" /> </td>
                         </tr>
                     </div>
+                        <button type="submit" class="btn btn-default" onclick="sendYear()">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
