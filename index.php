@@ -36,7 +36,7 @@
   </head>
   <body>
     <div id="map" class="map"></div>
-    <div id ="overlay">
+    <div class="table.controls" id ="overlay">
 
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
