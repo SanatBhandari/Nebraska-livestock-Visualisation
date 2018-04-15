@@ -7,7 +7,7 @@ $dbname = "sbhandari";
 // $year = $_POST['val'];
 // $livestock_string = $_POST['livestock'];
 $year = "2002";
-$livestock_string = "('04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi', '0103 Swine, Live', '1005 Corn (maize)', '100590 Corn (maize), Other Than Seed Corn', '110220 Corn (maize) Flour', '151529 Corn (maize) Oil, Refined, & Fractions, Not Modif', '230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground')"
+$livestock_string = "('04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi', '0103 Swine, Live', '1005 Corn (maize)', '100590 Corn (maize), Other Than Seed Corn', '110220 Corn (maize) Flour', '151529 Corn (maize) Oil, Refined, & Fractions, Not Modif', '230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground')";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
