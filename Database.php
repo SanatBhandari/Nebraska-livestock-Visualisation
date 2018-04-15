@@ -33,6 +33,7 @@ if ($result->num_rows > 0) {
     echo $json;
 } else {
     echo $year;
+	echo $livestock;
 }
 
 $conn->close();
