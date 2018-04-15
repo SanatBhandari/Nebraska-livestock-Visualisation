@@ -22,6 +22,7 @@
           color: white;
           font-size: 11pt;
           left: 400px;
+          top: 400px;
           font-weight: bold;
           text-shadow: black 0.1em 0.1em 0.2em;
          cursor: pointer; /* Add a pointer on hover */
