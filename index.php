@@ -22,75 +22,77 @@
 
  <div id="map" class="map"></div>
  
-    <div class="container">
-        <button type="button" class="btn btn-lg btn-info collapsed overlay" data-toggle="collapse" data-target="#dataMenu">Data Options</button>
-        <div id="dataMenu" class="collapse">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <form id="lstock" action="Database.php" method="get">
-                        <div class="checkbox">
+ <div id>
+	<button id="optionsOverlay" type="button" class="btn btn-lg btn-info" onclick="openNav()">Data Options</button>
+</div>
+	<div id="dataNav" class="overlay">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<div class="panel-group overlay-content">
+        <div class="panel panel-default">
+            <form id="lstock" action="Database.php" method="get">
+                <div class="checkbox">
                             <label>
-                        <input class="livestockSelector" type="checkbox" name="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">Bovine Animals, Live
+                        <input class="livestockSelector checkbox" type="checkbox" name="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">Bovine Animals, Live
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l2" value="0102 Bovine Animals, Live">Swine, Live
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l2" value="0102 Bovine Animals, Live">Swine, Live
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l3" value="0103 Swine, Live">Chickens, Ducks, Geese, Turkeys, And Guineas, Live
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l3" value="0103 Swine, Live">Chickens, Ducks, Geese, Turkeys, And Guineas, Live
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l4" value="0105 Chickens, Ducks, Geese, Turkeys, And Guineas, Live">Corn (maize)
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l4" value="0105 Chickens, Ducks, Geese, Turkeys, And Guineas, Live">Corn (maize)
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l5" value="1005 Corn (maize)">Corn (maize) Seed, Certified, Excluding Sweet Corn
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l5" value="1005 Corn (maize)">Corn (maize) Seed, Certified, Excluding Sweet Corn
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l6" value="100510 Corn (maize) Seed, Certified, Excluding Sweet Corn">Corn (maize), Other Than Seed Corn
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l6" value="100510 Corn (maize) Seed, Certified, Excluding Sweet Corn">Corn (maize), Other Than Seed Corn
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l7" value="100590 Corn (maize), Other Than Seed Corn">Corn (maize) Flour
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l7" value="100590 Corn (maize), Other Than Seed Corn">Corn (maize) Flour
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l8" value="110220 Corn (maize) Flour">Groats And Meal Of Corn (maize)
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l8" value="110220 Corn (maize) Flour">Groats And Meal Of Corn (maize)
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l9" value="110423 Grains Worked (hulld Pearld Sliced Kibbld) Of Corn">Grains (Worked) Of Corn
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l9" value="110423 Grains Worked (hulld Pearld Sliced Kibbld) Of Corn">Grains (Worked) Of Corn
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l10" value="151521 Corn (maize) Oil, Crude, Not Chemically Modified">Non- chemically modified crude Corn (maize) Oil
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l10" value="151521 Corn (maize) Oil, Crude, Not Chemically Modified">Non- chemically modified crude Corn (maize) Oil
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l11" value="151529 Corn (maize) Oil, Refined, & Fractions, Not Modif">Refined and fractions Corn (maize) Oil (Not Modified)
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l11" value="151529 Corn (maize) Oil, Refined, & Fractions, Not Modif">Refined and fractions Corn (maize) Oil (Not Modified)
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l12" value="230210 Bran Sharps & Oth Residues Derived Frm Millng Corn">Bran Sharps & Other Residues Derived From Millng Corn
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l12" value="230210 Bran Sharps & Oth Residues Derived Frm Millng Corn">Bran Sharps & Other Residues Derived From Millng Corn
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l13" value="230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground">Germ Oilcake
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l13" value="230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground">Germ Oilcake
                         </label>
                             <br>
                             <label>  
-                        <input class="livestockSelector" type = "checkbox" name ="l14" value="110812 Starch, Corn (maize)">Meat And Edible Meat Offal
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l14" value="110812 Starch, Corn (maize)">Meat And Edible Meat Offal
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l15" value="02 Meat And Edible Meat Offal">Dairy Prods; Birds Eggs; Honey
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l15" value="02 Meat And Edible Meat Offal">Dairy Prods; Birds Eggs; Honey
                         </label>
                             <br>
                             <label>
-                        <input class="livestockSelector" type = "checkbox" name ="l16" value="110313 Groats And Meal Of Corn (maize)">Starch, Corn (maize)<br>
+                        <input class="livestockSelector checkbox" type = "checkbox" name ="l16" value="110313 Groats And Meal Of Corn (maize)">Starch, Corn (maize)<br>
                         </label>
                         </div>
 						<div>
@@ -104,11 +106,19 @@
                     </div>
                         <button type="submit" class="btn btn-default" onclick="sendYear()">Submit</button>
                     </form>
-                </div>
             </div>
         </div>
     </div>
-    </div>
+	
+	<script>
+	function openNav() {
+		document.getElementById("dataNav").style.width = "30%";
+	}
+
+	function closeNav() {
+		document.getElementById("dataNav").style.width = "0%";
+	}
+	</script>
 
     <script type="text/javascript">
         var map = new ol.Map({

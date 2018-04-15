@@ -2,6 +2,14 @@ body {
     
 }
 
+#optionsOverlay {
+    position: fixed;
+    z-index: 1;
+    top: 5%;
+    left: 5%;
+    overflow-x: hidden;
+}
+
 .overlay {
     height: 100%;
     width: 0;
@@ -19,11 +27,10 @@ body {
     position: relative;
     top: 25%;
     width: 100%;
-    text-align: center;
     margin-top: 30px;
 }
 
-.overlay a {
+.overlay a, .overlay input{
     padding: 8px;
     text-decoration: none;
     font-size: 36px;
@@ -32,9 +39,11 @@ body {
     transition: 0.3s;
 }
 
-.overlay a:hover, .overlay a:focus {
+.overlay a:hover, .overlay a:focus, .overlay input:hover, .overlay input:focus {
     color: #f1f1f1;
 }
+
+.livestockSelector
 
 .overlay .closebtn {
     position: absolute;
