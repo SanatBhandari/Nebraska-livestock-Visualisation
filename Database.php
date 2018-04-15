@@ -32,6 +32,7 @@ if ($result->num_rows > 0) {
     $json = json_encode($finalArray);
     echo $json;
 } else {
+	echo "error";
     echo $year;
 	echo $livestock;
 }
