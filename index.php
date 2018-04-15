@@ -37,6 +37,9 @@
 </head>
 
 <body>
+
+ <div id="map" class="map"></div>
+ 
     <div class="container">
         <button id="overlay" type="button" class="btn btn-lg btn-info collapsed" data-toggle="collapse" data-target="#dataMenu">Data Options</button>
         <div id="dataMenu" class="collapse">
@@ -128,8 +131,6 @@
         </div>
     </div>
     </div>
-
-    <div id="map" class="map"></div>
 
     <script type="text/javascript">
         var map = new ol.Map({
