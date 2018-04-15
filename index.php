@@ -16,13 +16,22 @@
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
     <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
     <style>
+      #graph{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+      }
       #overlay {
         text-decoration: none;
+        position: fixed;
          color: white;
          font-size: 11pt;
          font-weight: bold;
          text-shadow: black 0.1em 0.1em 0.2em;
-        cursor: pointer; /* Add a pointer on hover */
+         cursor: pointer; /* Add a pointer on hover */
       }
       table.controls td {
         text-align: center;
@@ -32,7 +41,7 @@
     </style>
   </head>
   <body>
-    <div id="map" class="map"></div>
+    <div id="map" id="graph" class="map"></div>
     <div class="overlay" id ="overlay">
 
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
