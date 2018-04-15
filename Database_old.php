@@ -12,7 +12,14 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+?>
 
+<html>
+<head></head>
+<body>
+<h1><?php echo $year; ?></h1>
+
+<?php
 //$year= slider's val
 $sql = "SELECT country, sum( year".$year." ) as sum_year".$year." FROM dwfi_data WHERE year".$year." != 0 and country!='World Total' and commodity IN ". $livestock_string ." group by country;" ;
 $sql2 = "SELECT latitude, longitude FROM sbhandari.countries WHERE latitude != 0;";
