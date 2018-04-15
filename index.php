@@ -37,6 +37,7 @@
    <body>
      <div id="map" class="map"></div>
      <div id="overlay">
+    <button style="font-size : 12px; font-family: 'verdana';" type="button" onclick="sendYear()">Submit</button>
 
      <p id="demo"></p>
      <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
@@ -181,7 +182,6 @@
       }
       console.log(slider.value);
 
-
       function sendYear(){
         var livestock_string = "(";
         var livestock_values = document.getElementsByClassName('livestockSelector');
@@ -198,13 +198,17 @@
         $.ajax({
           type: 'POST',
           data: {'val': slider.value, 'livestock': livestock_string},
+          dataType:'json',
           url: 'Database.php',
           success: function(query_result){
             console.log(JSON.parse(query_result));
             dataset = JSON.parse(query_result);
             //google.charts.setOnLoadCallback(drawRegionsMap);
             map.addLayer(flightsLayer);
-          }
+          },
+          error: function(request, status, error){
+        alert("Error: Could not find");
+      }
         });
       }
     </script>
