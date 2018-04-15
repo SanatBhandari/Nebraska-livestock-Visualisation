@@ -27,7 +27,8 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;
       </a>
       <div class="overlay-content">
-        <form id="lstock" action="Database.php" method="get">
+        <!-- <form id="lstock" action="Database.php" method="get"> -->
+		<form id="lstock" action="Database.php" method="get">
           <div class="checkbox">
             <label>
               <input class="livestockSelector checkbox" type="checkbox" name="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">Bovine Animals, Live
@@ -95,7 +96,7 @@
             </label>
           </div>
           <div class="slider navOptionSlider">
-            <input id="myRange" type="range" min="2002" max="2017" value="2002" color="white"/>
+            <input id="yearRange" type="range" min="2002" max="2017" value="2002" color="white"/>
             <output foo="foo" on forminput="value = foo.valueAsNumber;" />
             <p id="yearValue" class="navOptionSlider">
             </p>
@@ -222,21 +223,18 @@
           map.addLayer(flightsLayer); */
   </script>
   <script>
-    var slider = document.getElementById("myRange");
+    var slider = document.getElementById("yearRange");
     var output = document.getElementById("yearValue");
-    function colorTrace(msg, color) {
-      console.log("%c" + msg, "color:" + color + ";font-weight:bold;");
-    }
-    colorTrace(slider.value, "green");
     console.log(slider.value);
     output.innerHTML = slider.value;
     // Display the default slider value
+	
     // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function() {
+	slider.oninput = function() {
       output.innerHTML = this.value;
-      // use ajax to pass values to the database.php page
     }
     console.log(slider.value);
+	// use ajax to pass values to the database.php page
 	function sendYear(){
       var livestock_string = "(";
       var livestock_values = document.getElementsByClassName('livestockSelector');
@@ -251,6 +249,7 @@
         }
       }
       livestock_string = livestock_string + ")";
+	  
       $.ajax({
         type: 'POST',
         data: {

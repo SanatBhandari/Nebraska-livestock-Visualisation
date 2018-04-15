@@ -113,7 +113,7 @@
       livestock_string = livestock_string + ")";
       $.ajax({
         type: 'POST',
-        data: {'val': slider.value, 'livestock': livestock_string},
+        data: {'year': slider.value, 'livestock': livestock_string},
         url: 'Database.php',
         success: function(query_result){
           console.log(JSON.parse(query_result));
