@@ -1,111 +1,106 @@
-<<<<<<< HEAD
-=======
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title></title>
-    <style>
-    /* Icon when the collapsible content is shown */
-    .btn:after {
-      font-family: "Glyphicons Halflings";
-      content: "\e114";
-      float: left;
-      margin-right: 15px;
-    }
-    /* Icon when the collapsible content is hidden */
-    .btn.collapsed:after {
-      content: "\e080";
-    }
-    .check.unchecked {
-
-    }
-  </style>
-  </head>
-
-  <body>
-    <div class="container">
-      <button type="button" class="btn btn-lg btn-info collapsed" data-toggle="collapse" data-target="#dataMenu">Data Options</button>
-        <div id="dataMenu" class="collapse">
-          <div class="panel-group">
-            <div class="panel panel-default">
-              <form id ="lstock" action = "Database.php" method = "get">
-                <div class="checkbox">
-                  <label>
-                    <input class="checkbox" type="checkbox" name="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">Bovine Animals, Live
-                  </label>
-		  <br>
-                  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l2" value="0102 Bovine Animals, Live">Swine, Live
-		  </label>
-		  <br>
-		  <label>
-		    <input class = "checkbox" type = "checkbox" name ="l3" value="0103 Swine, Live">Chickens, Ducks, Geese, Turkeys, And Guineas, Live
-		  </label>
-		  <br>
-                  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l4" value="0105 Chickens, Ducks, Geese, Turkeys, And Guineas, Live">Corn (maize)
-		  </label>
-		  <br>
-		  <label>
-		    <input class = "checkbox" type = "checkbox" name ="l5" value="1005 Corn (maize)">Corn (maize) Seed, Certified, Excluding Sweet Corn
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l6" value="100510 Corn (maize) Seed, Certified, Excluding Sweet Corn">Corn (maize), Other Than Seed Corn
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l7" value="100590 Corn (maize), Other Than Seed Corn">Corn (maize) Flour
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l8" value="110220 Corn (maize) Flour">Groats And Meal Of Corn (maize)
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l9" value="110423 Grains Worked (hulld Pearld Sliced Kibbld) Of Corn">Grains (Worked) Of Corn
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l10" value="151521 Corn (maize) Oil, Crude, Not Chemically Modified">Non- chemically modified crude Corn (maize) Oil
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l11" value="151529 Corn (maize) Oil, Refined, & Fractions, Not Modif">Refined and fractions Corn (maize) Oil (Not Modified)
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l12" value="230210 Bran Sharps & Oth Residues Derived Frm Millng Corn">Bran Sharps & Other Residues Derived From Millng Corn
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l13" value="230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground">Germ Oilcake
-		  </label>
-		  <br>
-		  <label>  
-                    <input class = "checkbox" type = "checkbox" name ="l14" value="110812 Starch, Corn (maize)">Meat And Edible Meat Offal
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l15" value="02 Meat And Edible Meat Offal">Dairy Prods; Birds Eggs; Honey
-		  </label>
-		  <br>
-		  <label>
-                    <input class = "checkbox" type = "checkbox" name ="l16" value="110313 Groats And Meal Of Corn (maize)">Starch, Corn (maize)<br>
-		  </label>
-                </div>
-		<button type="submit" class="btn btn-default" data-toggle="this.form.submit()" data-target="#lstock">Submit</button>
-              </form>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <title></title>
+      <style>
+         /* Icon when the collapsible content is shown */
+         .btn:after {
+         font-family: "Glyphicons Halflings";
+         content: "\e114";
+         float: left;
+         margin-right: 15px;
+         }
+         /* Icon when the collapsible content is hidden */
+         .btn.collapsed:after {
+         content: "\e080";
+         }
+         .check.unchecked {
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <button type="button" class="btn btn-lg btn-info collapsed" data-toggle="collapse" data-target="#dataMenu">Data Options</button>
+         <div id="dataMenu" class="collapse">
+            <div class="panel-group">
+               <div class="panel panel-default">
+                  <form id ="lstock" action = "Database.php" method = "get">
+                     <div class="checkbox">
+                        <label>
+                        <input class="checkbox" type="checkbox" name="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">Bovine Animals, Live
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l2" value="0102 Bovine Animals, Live">Swine, Live
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l3" value="0103 Swine, Live">Chickens, Ducks, Geese, Turkeys, And Guineas, Live
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l4" value="0105 Chickens, Ducks, Geese, Turkeys, And Guineas, Live">Corn (maize)
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l5" value="1005 Corn (maize)">Corn (maize) Seed, Certified, Excluding Sweet Corn
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l6" value="100510 Corn (maize) Seed, Certified, Excluding Sweet Corn">Corn (maize), Other Than Seed Corn
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l7" value="100590 Corn (maize), Other Than Seed Corn">Corn (maize) Flour
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l8" value="110220 Corn (maize) Flour">Groats And Meal Of Corn (maize)
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l9" value="110423 Grains Worked (hulld Pearld Sliced Kibbld) Of Corn">Grains (Worked) Of Corn
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l10" value="151521 Corn (maize) Oil, Crude, Not Chemically Modified">Non- chemically modified crude Corn (maize) Oil
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l11" value="151529 Corn (maize) Oil, Refined, & Fractions, Not Modif">Refined and fractions Corn (maize) Oil (Not Modified)
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l12" value="230210 Bran Sharps & Oth Residues Derived Frm Millng Corn">Bran Sharps & Other Residues Derived From Millng Corn
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l13" value="230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground">Germ Oilcake
+                        </label>
+                        <br>
+                        <label>  
+                        <input class = "checkbox" type = "checkbox" name ="l14" value="110812 Starch, Corn (maize)">Meat And Edible Meat Offal
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l15" value="02 Meat And Edible Meat Offal">Dairy Prods; Birds Eggs; Honey
+                        </label>
+                        <br>
+                        <label>
+                        <input class = "checkbox" type = "checkbox" name ="l16" value="110313 Groats And Meal Of Corn (maize)">Starch, Corn (maize)<br>
+                        </label>
+                     </div>
+                     <button type="submit" class="btn btn-default" on-click="sendYear()" data-target="#lstock">Submit</button>
+                  </form>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div>
-  </body>
+      </div>
+   </body>
 </html>
->>>>>>> parent of 9f353cf... Merge branch 'master' of https://github.com/SanatBhandari/Nebraska-livestock-Visualisation
