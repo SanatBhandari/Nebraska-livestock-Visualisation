@@ -3,22 +3,18 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    </script>
+	<link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL">
-    </script>
-    <script src="https://openlayers.org/en/v4.6.5/build/ol.js">
-    </script>
-    <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js">
-    </script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Nebraska Livestock Visualisation
     </title>
   </head>
   <body>
-    <div id="map" class="map">
-	</div>
+    <div id="map" class="map"></div>
+	
 	<div>
       <button id="optionsOverlay" type="button" class="btn btn-primary" onclick="openNav()">Data Options
       </button>
@@ -115,80 +111,81 @@
       document.getElementById("dataNav").style.width = "0%";
     }
   </script>
-  <script type="text/javascript">
-	var map = new ol.Map({
-		view: new ol.View({
-			center: [0, 0],
-			zoom: 2,
-			maxZoom: 3,
-			minZoom: 1
-		}),
-		layers: [
-		new ol.layer.Tile({
+  <script>
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
 			source: new ol.source.OSM()
-		})
-		],
-		target: 'map'
-	});
-	
-	var style = new ol.style.Style({
-		stroke: new ol.style.Stroke({
+          })
+        ],
+        target: 'map',
+        view: new ol.View({
+          center: [0, 0],
+		  zoom: 2,
+		  maxZoom: 3,
+		  minZoom: 1
+        })
+      });
+
+      var style = new ol.style.Style({
+        stroke: new ol.style.Stroke({
 			color: '#228B22',
 			width: 2
 		})
-	});
-	
-	var dataSource;
-	var addLater = function(feature, timeout) {
-		window.setTimeout(function() {
-			feature.set('start', new Date().getTime());
-			dataSource.addFeature(feature);
-		}, timeout);
-	};
-	
-	var pointsPerMs = 0.1;
-	var animatedata = function(event) {
-		var vectorContext = event.vectorContext;
-		var frameState = event.frameState;
-		vectorContext.setStyle(style);
-		
-		var features = dataSource.getFeatures();
-		for (var i = 0; i < features.length; i++) {
-			var feature = features[i];
-			if (!feature.get('finished')) {
-				// only draw the lines for which the animation has not finished yet
-				var coords = feature.getGeometry().getCoordinates();
-				var elapsedTime = frameState.time - feature.get('start');
-				var elapsedPoints = elapsedTime * pointsPerMs;
-				
-				if (elapsedPoints >= coords.length) {
-					feature.set('finished', true);
-				}
-				
-				var maxIndex = Math.min(elapsedPoints, coords.length);
-				var currentLine = new ol.geom.LineString(coords.slice(0, maxIndex));
-				
-				// directly draw the line with the vector context
-				vectorContext.drawGeometry(currentLine);
-			}
-		}
-		// tell OpenLayers to continue the animation
-		map.render();
-	};
+      });
 
-      dataSource = new ol.source.Vector({
+      var flightsSource;
+      var addLater = function(feature, timeout) {
+        window.setTimeout(function() {
+          feature.set('start', new Date().getTime());
+          flightsSource.addFeature(feature);
+        }, timeout);
+      };
+
+      var pointsPerMs = 0.1;
+      var animateFlights = function(event) {
+        var vectorContext = event.vectorContext;
+        var frameState = event.frameState;
+        vectorContext.setStyle(style);
+
+        var features = flightsSource.getFeatures();
+        for (var i = 0; i < features.length; i++) {
+          var feature = features[i];
+          if (!feature.get('finished')) {
+            // only draw the lines for which the animation has not finished yet
+            var coords = feature.getGeometry().getCoordinates();
+            var elapsedTime = frameState.time - feature.get('start');
+            var elapsedPoints = elapsedTime * pointsPerMs;
+
+            if (elapsedPoints >= coords.length) {
+              feature.set('finished', true);
+            }
+
+            var maxIndex = Math.min(elapsedPoints, coords.length);
+            var currentLine = new ol.geom.LineString(coords.slice(0, maxIndex));
+
+            // directly draw the line with the vector context
+            vectorContext.drawGeometry(currentLine);
+          }
+        }
+        // tell OpenLayers to continue the animation
+        map.render();
+      };
+
+      flightsSource = new ol.source.Vector({
         wrapX: false,
+        attributions: 'Flight data by ' +
+              '<a href="http://openflights.org/data.html">OpenFlights</a>,',
         loader: function() {
-          var url = 'location.json';
+          var url = 'https://openlayers.org/en/v4.6.5/examples/data/openflights/flights.json';
           fetch(url).then(function(response) {
             return response.json();
           }).then(function(json) {
-			  var dataData = json.1 ;
-            for (var i = 0; i < dataData.length; i++) {
-              var flight = dataData[i];
-              var from = "[41.4925374, -99.9018131]";
-              var to = flight[0];
-			  alert(from);
+            var flightsData = json.flights;
+            for (var i = 0; i < flightsData.length; i++) {
+              var flight = flightsData[i];
+              var from = flight[0];
+              var to = flight[1];
 
               // create an arc circle between the two locations
               var arcGenerator = new arc.GreatCircle(
@@ -209,13 +206,13 @@
                 addLater(feature, i * 50);
               }
             }
-            map.on('postcompose', animatedata);
+            map.on('postcompose', animateFlights);
           });
         }
       });
 
-      var dataLayer = new ol.layer.Vector({
-        source: dataSource,
+      var flightsLayer = new ol.layer.Vector({
+        source: flightsSource,
         style: function(feature) {
           // if the animation is still active for a feature, do not
           // render the feature with the layer style
@@ -226,8 +223,8 @@
           }
         }
       });
-      map.addLayer(dataLayer);
-  </script>
+      map.addLayer(flightsLayer);
+    </script>
  <script type="text/javascript">
     var slider = document.getElementById("yearRange");
     var output = document.getElementById("yearValue");
@@ -265,13 +262,11 @@
           console.log(JSON.parse(query_result));
           dataset = JSON.parse(query_result);
           map.addLayer(dataLayer);
-        }
-        ,
+        },
         error: function(request, status, error, query_result){
           alert("Error: Could not find");
         }
       }
-            );
     }
   </script>
   </body>
