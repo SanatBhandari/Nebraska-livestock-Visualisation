@@ -47,7 +47,6 @@
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
     <tr>
-
       <td>Year </td>
       <td><output foo = "foo" on forminput = "value = foo.valueAsNumber;"/> </td>
       <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002" color="black"/></td>
