@@ -31,7 +31,7 @@
          text-align: center;
          padding: 2px 5px;
          min-width: 60px;
-       }
+       } 
      </style>
    </head>
    <body>
