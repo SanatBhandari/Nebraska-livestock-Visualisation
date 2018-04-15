@@ -17,14 +17,11 @@
     <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
     <style>
       #overlay {
-        position: fixed; /* Sit on top of the page content */
-        width: 200%; /* Full width (cover the whole page) */
-        height: 700px; /* Full height (cover the whole page) */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        text-decoration: none;
+         color: white;
+         font-size: 11pt;
+         font-weight: bold;
+         text-shadow: black 0.1em 0.1em 0.2em;
         cursor: pointer; /* Add a pointer on hover */
       }
       table.controls td {
@@ -36,7 +33,7 @@
   </head>
   <body>
     <div id="map" class="map"></div>
-    <div class="table.controls" id ="overlay">
+    <div class="overlay" id ="overlay">
 
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
@@ -46,7 +43,7 @@
       <td><output foo = "foo" on forminput = "value = foo.valueAsNumber;"/> </td>
       <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002" color="black"/></td>
     </tr>
-    </div>
+  </div>
     <script>
       var map = new ol.Map({
         layers: [
