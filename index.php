@@ -250,14 +250,12 @@
       }
       livestock_string = livestock_string + ")";
       $.ajax({
-        /* type: 'POST', */
-        data: {
-          'val': slider.value, 'livestock': livestock_string}
-        ,
-        /* dataType:'json', */
+        type: 'POST',
+        data: ({'val': slider.value, 'livestock': livestock_string}),
+        dataType:'json',
         url: 'Database.php',
         success: function(query_result){
-			alert("Success!");
+		  alert("Success!");
           console.log(JSON.parse(query_result));
           dataset = JSON.parse(query_result);
           map.addLayer(flightsLayer);
@@ -265,6 +263,8 @@
         ,
         error: function(request, status, error){
           alert("Error: Could not find");
+		  alert("Lstock String: " + livestock_string);
+		  alert("Year: " + slider.value);
 		  alert("Error: " + error);
 		  alert("Status: " + status);
 		  alert("Request: " + request);
