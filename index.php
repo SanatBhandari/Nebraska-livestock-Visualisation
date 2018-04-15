@@ -18,8 +18,8 @@
   </head>
   <body>
     <div id="map" class="map">
-    </div>
-    <div>
+	</div>
+	<div>
       <button id="optionsOverlay" type="button" class="btn btn-primary" onclick="openNav()">Data Options
       </button>
     </div>
@@ -27,8 +27,7 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;
       </a>
       <div class="overlay-content">
-        <!-- <form id="lstock" action="Database.php" method="get"> -->
-		<form id="lstock">
+        <form id="lstock" action="Database.php" method="get">
           <div class="checkbox">
             <label>
               <input class="livestockSelector checkbox" type="checkbox" name="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">Bovine Animals, Live
@@ -101,7 +100,7 @@
             <p id="yearValue" class="navOptionSlider">
             </p>
           </div>
-          <button id="navOptionSubmit" type="submit" class="btn btn-primary center">Submit
+          <button id="navOptionSubmit" type="submit" class="btn btn-primary center" onclick="sendYear();">Submit
           </button>
           </div>
         </form>
