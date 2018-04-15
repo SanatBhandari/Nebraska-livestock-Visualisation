@@ -1,5 +1,3 @@
-<html>
-<head></head>
 <?php
 $servername = "cse.unl.edu";
 $username = "sbhandari";
@@ -14,14 +12,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-?>
-
-
-<body>
-<h1><?php echo $year; ?></h1>
-</body>
-
-<?php
 
 //$year= slider's val
 $sql = "SELECT country, sum( year".$year." ) as sum_year".$year." FROM dwfi_data WHERE year".$year." != 0 and country!='World Total' and commodity IN ". $livestock_string ." group by country;" ;
@@ -42,9 +32,8 @@ if ($result->num_rows > 0) {
     $json = json_encode($finalArray);
     echo $json;
 } else {
-    echo "0 results";
+    echo $year;
 }
 
 $conn->close();
 ?>
-</html>
