@@ -16,6 +16,17 @@
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
     <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
     <style>
+      #overlay {
+        position: fixed; /* Sit on top of the page content */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+      }
       table.controls td {
         text-align: center;
         padding: 2px 5px;
@@ -25,7 +36,7 @@
   </head>
   <body>
     <div id="map" class="map"></div>
-    <div class="slidecontainer">
+    <div class="slidecontainer" id ="overlay">
 
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
@@ -49,8 +60,7 @@
         view: new ol.View({
           center: [0, 0],
           zoom: 2,
-          minZoom: 1,
-          maxZoom: 3
+          maxZoom: 2
         })
       });
 
