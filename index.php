@@ -107,6 +107,7 @@
         </form>
     </div>
     </div>
+	
   <script>
     function openNav() {
       document.getElementById("dataNav").style.width = "40%";
@@ -116,64 +117,65 @@
     }
   </script>
   <script type="text/javascript">
-    var map = new ol.Map({
-      view: new ol.View({
-        center: [0, 0],
-        zoom: 2,
-        maxZoom: 3,
-        minZoom: 1
-      }),
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        })
-      ],
-      target: 'map'
-    }
-                        );
-    var style = new ol.style.Style({
-      stroke: new ol.style.Stroke({
-        color: '#228B22',
-        width: 2
-      })
+	var map = new ol.Map({
+		view: new ol.View({
+			center: [0, 0],
+			zoom: 2,
+			maxZoom: 3,
+			minZoom: 1
+		}),
+		layers: [
+		new ol.layer.Tile({
+			source: new ol.source.OSM()
+		})
+		],
+		target: 'map'
 	});
-      var dataSource;
-      var addLater = function(feature, timeout) {
-        window.setTimeout(function() {
-          feature.set('start', new Date().getTime());
-          dataSource.addFeature(feature);
-        }, timeout);
-      };
-
-      var pointsPerMs = 0.1;
-      var animatedata = function(event) {
-        var vectorContext = event.vectorContext;
-        var frameState = event.frameState;
-        vectorContext.setStyle(style);
-
-        var features = dataSource.getFeatures();
-        for (var i = 0; i < features.length; i++) {
-          var feature = features[i];
-          if (!feature.get('finished')) {
-            // only draw the lines for which the animation has not finished yet
-            var coords = feature.getGeometry().getCoordinates();
-            var elapsedTime = frameState.time - feature.get('start');
-            var elapsedPoints = elapsedTime * pointsPerMs;
-
-            if (elapsedPoints >= coords.length) {
-              feature.set('finished', true);
-            }
-
-            var maxIndex = Math.min(elapsedPoints, coords.length);
-            var currentLine = new ol.geom.LineString(coords.slice(0, maxIndex));
-
-            // directly draw the line with the vector context
-            vectorContext.drawGeometry(currentLine);
-          }
-        }
-        // tell OpenLayers to continue the animation
-        map.render();
-      };
+	
+	var style = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+			color: '#228B22',
+			width: 2
+		})
+	});
+	
+	var dataSource;
+	var addLater = function(feature, timeout) {
+		window.setTimeout(function() {
+			feature.set('start', new Date().getTime());
+			dataSource.addFeature(feature);
+		}, timeout);
+	};
+	
+	var pointsPerMs = 0.1;
+	var animatedata = function(event) {
+		var vectorContext = event.vectorContext;
+		var frameState = event.frameState;
+		vectorContext.setStyle(style);
+		
+		var features = dataSource.getFeatures();
+		for (var i = 0; i < features.length; i++) {
+			var feature = features[i];
+			if (!feature.get('finished')) {
+				// only draw the lines for which the animation has not finished yet
+				var coords = feature.getGeometry().getCoordinates();
+				var elapsedTime = frameState.time - feature.get('start');
+				var elapsedPoints = elapsedTime * pointsPerMs;
+				
+				if (elapsedPoints >= coords.length) {
+					feature.set('finished', true);
+				}
+				
+				var maxIndex = Math.min(elapsedPoints, coords.length);
+				var currentLine = new ol.geom.LineString(coords.slice(0, maxIndex));
+				
+				// directly draw the line with the vector context
+				vectorContext.drawGeometry(currentLine);
+			}
+		}
+		// tell OpenLayers to continue the animation
+		map.render();
+	};
 
       dataSource = new ol.source.Vector({
         wrapX: false,
