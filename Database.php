@@ -4,8 +4,8 @@ $username = "sbhandari";
 $password = "dg4:fA";
 $dbname = "sbhandari";
 
-$year = $_POST['val'];
-$livestock_string = $_POST['livestock'];
+$year = $_GET['val'];
+$livestock_string = $_GET['livestock'];
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection

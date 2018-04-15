@@ -250,7 +250,7 @@
       }
       livestock_string = livestock_string + ")";
       $.ajax({
-        type: 'POST',
+        /* type: 'POST', */
         data: {
           'val': slider.value, 'livestock': livestock_string}
         ,
