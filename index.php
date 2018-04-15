@@ -28,7 +28,7 @@
       </a>
       <div class="overlay-content">
         <!-- <form id="lstock" action="Database.php" method="get"> -->
-		<form id="lstock" action="Database.php" method="get">
+		<form id="lstock">
           <div class="checkbox">
             <label>
               <input class="livestockSelector checkbox" type="checkbox" name="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">Bovine Animals, Live
@@ -101,7 +101,7 @@
             <p id="yearValue" class="navOptionSlider">
             </p>
           </div>
-          <button id="navOptionSubmit" type="submit" class="btn btn-primary center" onclick="sendYear()">Submit
+          <button id="navOptionSubmit" type="submit" class="btn btn-primary center">Submit
           </button>
           </div>
         </form>
@@ -122,13 +122,11 @@
         zoom: 2,
         maxZoom: 3,
         minZoom: 1
-      }
-                       ),
+      }),
       layers: [
         new ol.layer.Tile({
           source: new ol.source.OSM()
-        }
-                         )
+        })
       ],
       target: 'map'
     }
@@ -137,92 +135,99 @@
       stroke: new ol.style.Stroke({
         color: '#228B22',
         width: 2
-      }
-                                 )
-    }
-                                  );
-		var flightsSource;
-          var addLater = function(feature, timeout) {
-            window.setTimeout(function() {
-              feature.set('start', new Date().getTime());
-              flightsSource.addFeature(feature);
-            }, timeout);
-          };
-          var pointsPerMs = 0.05;
-          var animateFlights = function(event) {
-            var vectorContext = event.vectorContext;
-            var frameState = event.frameState;
-            vectorContext.setStyle(style);
-            var features = flightsSource.getFeatures();
-            for (var i = 0; i < features.length; i++) {
-              var feature = features[i];
-              if (!feature.get('finished')) {
-                // only draw the lines for which the animation has not finished yet
-                var coords = feature.getGeometry().getCoordinates();
-                var elapsedTime = frameState.time - feature.get('start');
-                var elapsedPoints = elapsedTime * pointsPerMs;
-                if (elapsedPoints >= coords.length) {
-                  feature.set('finished', true);
-                }
-                var maxIndex = Math.min(elapsedPoints, coords.length);
-                var currentLine = new ol.geom.LineString(coords.slice(0, maxIndex));
-                // directly draw the line with the vector context
-                vectorContext.drawGeometry(currentLine);
+      })
+	});
+      var dataSource;
+      var addLater = function(feature, timeout) {
+        window.setTimeout(function() {
+          feature.set('start', new Date().getTime());
+          dataSource.addFeature(feature);
+        }, timeout);
+      };
+
+      var pointsPerMs = 0.1;
+      var animatedata = function(event) {
+        var vectorContext = event.vectorContext;
+        var frameState = event.frameState;
+        vectorContext.setStyle(style);
+
+        var features = dataSource.getFeatures();
+        for (var i = 0; i < features.length; i++) {
+          var feature = features[i];
+          if (!feature.get('finished')) {
+            // only draw the lines for which the animation has not finished yet
+            var coords = feature.getGeometry().getCoordinates();
+            var elapsedTime = frameState.time - feature.get('start');
+            var elapsedPoints = elapsedTime * pointsPerMs;
+
+            if (elapsedPoints >= coords.length) {
+              feature.set('finished', true);
+            }
+
+            var maxIndex = Math.min(elapsedPoints, coords.length);
+            var currentLine = new ol.geom.LineString(coords.slice(0, maxIndex));
+
+            // directly draw the line with the vector context
+            vectorContext.drawGeometry(currentLine);
+          }
+        }
+        // tell OpenLayers to continue the animation
+        map.render();
+      };
+
+      dataSource = new ol.source.Vector({
+        wrapX: false,
+        loader: function() {
+          var url = 'location.json';
+          fetch(url).then(function(response) {
+            return response.json();
+          }).then(function(json) {
+			  var dataData = json.1 ;
+            for (var i = 0; i < dataData.length; i++) {
+              var flight = dataData[i];
+              var from = "[41.4925374, -99.9018131]";
+              var to = flight[0];
+			  alert(from);
+
+              // create an arc circle between the two locations
+              var arcGenerator = new arc.GreatCircle(
+                  {x: from[1], y: from[0]},
+                  {x: to[1], y: to[0]});
+
+              var arcLine = arcGenerator.Arc(100, {offset: 10});
+              if (arcLine.geometries.length === 1) {
+                var line = new ol.geom.LineString(arcLine.geometries[0].coords);
+                line.transform(ol.proj.get('EPSG:4326'), ol.proj.get('EPSG:3857'));
+
+                var feature = new ol.Feature({
+                  geometry: line,
+                  finished: false
+                });
+                // add the feature with a delay so that the animation
+                // for all features does not start at the same time
+                addLater(feature, i * 50);
               }
             }
-            // tell OpenLayers to continue the animation
-            map.render();
-          };
-          locationSource = new ol.source.Vector({
-            wrapX: false,
-            attributions: 'Flight data by ' +
-                  '<a href="http://openflights.org/data.html">OpenFlights</a>,',
-            loader: function() {
-              var url = 'Database.php';
-              fetch(url).then(function(response) {
-                return response.json();
-              }).then(function(json) {
-                var locationsData = json.locations;
-                for (var i = 0; i < flightsData.length; i++) {
-                  var location = locationsData[i];
-                  var from = locationsData[0];
-                  var to = locationsData[1];
-                  // create an arc circle between the two locations
-                  var arcGenerator = new arc.GreatCircle(
-                      {x: from[1], y: from[0]},
-                      {x: to[1], y: to[0]});
-                  var arcLine = arcGenerator.Arc(100, {offset: 10});
-                  if (arcLine.geometries.length === 1) {
-                    var line = new ol.geom.LineString(arcLine.geometries[0].coords);
-                    line.transform(ol.proj.get('EPSG:4326'), ol.proj.get('EPSG:3857'));
-                    var feature = new ol.Feature({
-                      geometry: line,
-                      finished: false
-                    });
-                    // add the feature with a delay so that the animation
-                    // for all features does not start at the same time
-                    addLater(feature, i * 50);
-                  }
-                }
-                map.on('postcompose', animateFlights);
-              });
-            }
+            map.on('postcompose', animatedata);
           });
-          var flightsLayer = new ol.layer.Vector({
-            source: flightsSource,
-            style: function(feature) {
-              // if the animation is still active for a feature, do not
-              // render the feature with the layer style
-              if (feature.get('finished')) {
-                return style;
-              } else {
-                return null;
-              }
-            }
-          });
-          map.addLayer(flightsLayer);
+        }
+      });
+
+      var dataLayer = new ol.layer.Vector({
+        source: dataSource,
+        style: function(feature) {
+          // if the animation is still active for a feature, do not
+          // render the feature with the layer style
+          if (feature.get('finished')) {
+            return style;
+          } else {
+            return null;
+          }
+        }
+      });
+      map.addLayer(dataLayer);
   </script>
-  <script type="text/javascript">
+ <script type="text/javascript">
     var slider = document.getElementById("yearRange");
     var output = document.getElementById("yearValue");
     console.log(slider.value);
@@ -249,7 +254,7 @@
         }
       }
       livestock_string = livestock_string + ")";
-      $.ajax({
+       $.ajax({
         type: 'POST',
         data: {'val': slider.value, 'livestock': livestock_string},
         dataType:'json',
@@ -258,16 +263,11 @@
 		  // alert("Success!");
           console.log(JSON.parse(query_result));
           dataset = JSON.parse(query_result);
-		  alert("Dataset: " + dataset);
-          map.addLayer(flightsLayer);
+          map.addLayer(dataLayer);
         }
         ,
         error: function(request, status, error, query_result){
-          // alert("Error: Could not find");
-		  console.log(JSON.parse(query_result));
-          dataset = JSON.parse(query_result);
-		  alert("Dataset: " + dataset);
-          map.addLayer(flightsLayer);
+          alert("Error: Could not find");
         }
       }
             );
