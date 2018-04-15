@@ -36,14 +36,14 @@
   </head>
   <body>
     <div id="map" class="map"></div>
-    <div class="slidecontainer" id ="overlay">
+    <div id ="overlay">
 
     <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
     <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
     <tr>
 
       <td>Year </td>
-      <td><span id="YearOut"></span> </td>
+      <td><output foo = "foo" on forminput = "value = foo.valueAsNumber;"/> </td>
       <td><input id = "myRange" type="range" min = "2002" max="2017" value="2002" color="black"/></td>
     </tr>
     </div>
