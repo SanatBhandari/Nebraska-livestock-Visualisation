@@ -31,7 +31,7 @@
          text-align: center;
          padding: 2px 5px;
          min-width: 60px;
-       } 
+       }
      </style>
    </head>
    <body>
@@ -47,7 +47,7 @@
        <td><output foo = "foo" on forminput = "value = foo.valueAsNumber;"/> </td>
      </tr>
    </div>
-    <script>
+    <script type="text/javascript">
       var map = new ol.Map({
         layers: [
           new ol.layer.Tile({
@@ -108,7 +108,7 @@
         map.render();
       };
 
-      flightsSource = new ol.source.Vector({
+      locationSource = new ol.source.Vector({
         wrapX: false,
         attributions: 'Flight data by ' +
               '<a href="http://openflights.org/data.html">OpenFlights</a>,',
