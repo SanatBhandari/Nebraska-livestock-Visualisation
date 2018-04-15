@@ -50,7 +50,7 @@ if ($result2->num_rows > 0) {
 		$finalArray2[$i] = $array2;
 		$i = $i + 1;
     }
-    
+
     $json2 = json_encode($finalArray2);
     echo $json2;
 } else {
