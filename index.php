@@ -50,8 +50,7 @@
       var map = new ol.Map({
         layers: [
           new ol.layer.Tile({
-            source: new ol.source.Stamen({
-              layer: 'terrain'
+            source: new ol.source.OSM()
             })
           })
         ],
