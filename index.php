@@ -35,7 +35,7 @@
    </head>
    <body>
      <div id="map" class="map"></div>
-     <div id ="overlay">
+     <div id="overlay">
 
      <!-- <input type="range" min="2002" max="2017" value="2002" class="slider" id="myRange" color="green">
      <output for="foo" onforminput="value = foo.valueAsNumber;"></output> -->
@@ -50,7 +50,7 @@
       var map = new ol.Map({
         layers: [
           new ol.layer.Tile({
-            source: new ol.source.OSM
+            source: new ol.source.OSM()
           })
         ],
         target: 'map',
