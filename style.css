@@ -1,5 +1,11 @@
-body {
+body, html {
     margin: 0;
+	height: 100%;
+}
+
+.map {
+	width: 100%;
+	height: 100%;
 }
 
 #optionsOverlay {
@@ -8,11 +14,6 @@ body {
     top: 5%;
     right: 5%;
     overflow-x: hidden;
-}
-
-.map {
-	height: 100%;
-	width: 100%;
 }
 
 .overlay {
@@ -30,11 +31,11 @@ body {
 
 .overlay-content {
     position: relative;
-    top: 10%;
-    width: 100%;
+	padding: 2%;
+    width: 96%;
 }
 
-.overlay a, .input{
+.overlay a {
     padding: 8px;
     text-decoration: none;
     font-size: 36px;
@@ -42,6 +43,18 @@ body {
     display: block;
     transition: 0.3s;
 }
+
+.navOptionSlider {
+	color: #818181;
+    display: block;
+	text-align: center;
+}
+
+#navOptionSubmit {
+	width: 50%;
+	align: center;
+}
+	
 
 label {
     text-decoration: none;
@@ -55,7 +68,7 @@ label {
 }
 
 .overlay .closebtn {
-    position: absolute;
+    position: relative;
     top: 20px;
     left: 45px;
     font-size: 60px;
@@ -66,6 +79,150 @@ label {
   .overlay .closebtn {
     font-size: 40px;
     top: 15px;
-    right: 35px;
+    left: 35px;
   }
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 9px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #00bff0;
+  border-radius: 5px;
+  border: 0px solid #000101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0.9px 0.9px 1px #000031, 0px 0px 0.9px #00004b;
+  border: 2px solid #000000;
+  height: 26px;
+  width: 26px;
+  border-radius: 15px;
+  background: #efffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -9px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #00bff0;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #00bff0;
+  border-radius: 5px;
+  border: 0px solid #000101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0.9px 0.9px 1px #000031, 0px 0px 0.9px #00004b;
+  border: 2px solid #000000;
+  height: 26px;
+  width: 26px;
+  border-radius: 15px;
+  background: #efffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #00bff0;
+  border: 0px solid #000101;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #00bff0;
+  border: 0px solid #000101;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0.9px 0.9px 1px #000031, 0px 0px 0.9px #00004b;
+  border: 2px solid #000000;
+  height: 26px;
+  width: 26px;
+  border-radius: 15px;
+  background: #efffff;
+  cursor: pointer;
+  height: 8px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #00bff0;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #00bff0;
+}
+
+.btn {
+font-weight:400;
+text-align:center;
+white-space:nowrap;
+vertical-align:middle;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+border:1px solid transparent;
+font-size:1rem;
+line-height:1.5;
+border-radius:.25rem;
+transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+padding:.375rem .75rem;
+}
+
+.btn.focus,.btn:focus {
+outline:0;
+box-shadow:0 0 0 .2rem rgba(0,123,255,.25);
+}
+
+
+.btn:not(:disabled):not(.disabled).active,.btn:not(:disabled):not(.disabled):active {
+background-image:none;
+}
+
+
+.btn-primary:hover {
+color:#fff;
+background-color:#0069d9;
+border-color:#0062cc;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show>.btn-primary.dropdown-toggle {
+color:#fff;
+background-color:#0062cc;
+border-color:#005cbf;
+}
+
+.btn-secondary:hover {
+color:#fff;
+background-color:#5a6268;
+border-color:#545b62;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,.btn-secondary:not(:disabled):not(.disabled):active,.show>.btn-secondary.dropdown-toggle {
+color:#fff;
+background-color:#545b62;
+border-color:#4e555b;
 }
