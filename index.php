@@ -16,24 +16,6 @@
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
     <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
-    <style>
-        #overlay {
-             position: absolute;
-             text-decoration: none;
-              color: white;
-              font-size: 11pt;
-              left: 400px;
-              top: 400px;
-              font-weight: bold;
-              text-shadow: black 0.1em 0.1em 0.2em;
-             cursor: pointer; /* Add a pointer on hover */
-           }
-           table.controls td {
-             text-align: center;
-             padding: 2px 5px;
-             min-width: 60px;
-           }
-    </style>
 </head>
 
 <body>
@@ -41,8 +23,8 @@
  <div id="map" class="map"></div>
  
     <div class="container">
-        <button id="overlay" type="button" class="btn btn-lg btn-info collapsed" data-toggle="collapse" data-target="#dataMenu">Data Options</button>
-        <div id="dataMenu" class="collapse overlay">
+        <button type="button" class="btn btn-lg btn-info collapsed overlay" data-toggle="collapse" data-target="#dataMenu">Data Options</button>
+        <div id="dataMenu" class="collapse">
             <div class="panel-group">
                 <div class="panel panel-default">
                     <form id="lstock" action="Database.php" method="get">
