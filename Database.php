@@ -1,3 +1,5 @@
+<html>
+<head></head>
 <?php
 $servername = "cse.unl.edu";
 $username = "sbhandari";
@@ -14,12 +16,10 @@ if ($conn->connect_error) {
 }
 ?>
 
-<html>
-<head></head>
+
 <body>
 <h1><?php echo $year; ?></h1>
 </body>
-</html>
 
 <?php
 
@@ -47,3 +47,4 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+</html>
