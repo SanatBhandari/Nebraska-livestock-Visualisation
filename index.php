@@ -141,7 +141,7 @@
                                  )
     }
                                   );
-    /*           var flightsSource;
+		var flightsSource;
           var addLater = function(feature, timeout) {
             window.setTimeout(function() {
               feature.set('start', new Date().getTime());
@@ -220,7 +220,7 @@
               }
             }
           });
-          map.addLayer(flightsLayer); */
+          map.addLayer(flightsLayer);
   </script>
   <script type="text/javascript">
     var slider = document.getElementById("yearRange");
@@ -255,16 +255,19 @@
         dataType:'json',
         url: 'Database.php',
         success: function(query_result){
-		  alert("Success!");
+		  // alert("Success!");
           console.log(JSON.parse(query_result));
           dataset = JSON.parse(query_result);
+		  alert("Dataset: " + dataset);
           map.addLayer(flightsLayer);
         }
         ,
-        error: function(request, status, error){
-          alert("Error: Could not find");
-		  alert("Lstock String: " + livestock_string);
-		  alert("Year: " + slider.value);
+        error: function(request, status, error, query_result){
+          // alert("Error: Could not find");
+		  console.log(JSON.parse(query_result));
+          dataset = JSON.parse(query_result);
+		  alert("Dataset: " + dataset);
+          map.addLayer(flightsLayer);
         }
       }
             );
