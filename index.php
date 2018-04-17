@@ -122,8 +122,7 @@
         view: new ol.View({
           center: [0, 0],
 		  zoom: 2,
-		  maxZoom: 3,
-		  minZoom: 1
+		  maxZoom: 3
         })
       });
 
