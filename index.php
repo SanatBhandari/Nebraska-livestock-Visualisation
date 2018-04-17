@@ -181,9 +181,8 @@
           fetch(url).then(function(response) {
             return response.json();
           }).then(function(json) {
-
+            var flightsData = json.flights;
             for (var i = 0; i < flightsData.length; i++) {
-              var flightsData = json."$i";
               var flight = flightsData[i];
               var from = flight[0];
               var to = flight[1];
