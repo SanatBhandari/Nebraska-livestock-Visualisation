@@ -14,7 +14,7 @@
   </head>
   <body>
     <div id="map" class="map"></div>
-	
+
 	<div>
       <button id="optionsOverlay" type="button" class="btn btn-primary" onclick="openNav()">Data Options
       </button>
@@ -77,7 +77,7 @@
               <input class="livestockSelector checkbox" type = "checkbox" name ="l13" value="230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground">Germ Oilcake
             </label>
             <br>
-            <label>  
+            <label>
               <input class="livestockSelector checkbox" type = "checkbox" name ="l14" value="110812 Starch, Corn (maize)">Meat And Edible Meat Offal
             </label>
             <br>
@@ -102,7 +102,7 @@
         </form>
     </div>
     </div>
-	
+
   <script>
     function openNav() {
       document.getElementById("dataNav").style.width = "40%";
@@ -177,12 +177,13 @@
         attributions: 'Flight data by ' +
               '<a href="http://openflights.org/data.html">OpenFlights</a>,',
         loader: function() {
-          var url = 'https://openlayers.org/en/v4.6.5/examples/data/openflights/flights.json';
+          var url = 'location.json';
           fetch(url).then(function(response) {
             return response.json();
           }).then(function(json) {
-            var flightsData = json.flights;
+
             for (var i = 0; i < flightsData.length; i++) {
+              var flightsData = json."$i";
               var flight = flightsData[i];
               var from = flight[0];
               var to = flight[1];
@@ -231,7 +232,7 @@
     console.log(slider.value);
     output.innerHTML = slider.value;
     // Display the default slider value
-	
+
     // Update the current slider value (each time you drag the slider handle)
 	slider.oninput = function() {
       output.innerHTML = this.value;
