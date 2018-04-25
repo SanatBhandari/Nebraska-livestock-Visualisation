@@ -6,6 +6,7 @@ $dbname = "sbhandari";
 
 // Get values from ajax
 $year = $_POST['val'];
+echo "SOMETHING";
 $livestock_string = $_POST['livestock'];
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
