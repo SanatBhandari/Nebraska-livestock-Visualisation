@@ -24,7 +24,7 @@
       </a>
       <div class="overlay-content">
         <!-- <form id="lstock" action="Database.php" method="get"> -->
-        <form id="lstock">
+        <!-- <form id="lstock"> -->
           <div class="checkbox">
             
               <input class="livestockSelector" type="checkbox" id="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">
@@ -98,7 +98,7 @@
           <button id="navOptionSubmit" type="submit" onclick="sendYear();">Submit
           </button>
           </div>
-        </form>
+        <!-- </form> -->
     </div>
     </div>
 
@@ -256,18 +256,20 @@
         }
       }
       livestock_string = livestock_string + ")";
-      console.log(livestock_string);
+      // console.log(livestock_string);
        $.ajax({
         type: 'POST',
         data: {'val': slider.value, 'livestock': livestock_string},
         dataType:'json',
-        url: 'Database.php',
+        url: './Database.php',
         success: function(query_result){
-		  // alert("Success!");
           console.log(JSON.parse(query_result));
           dataset = JSON.parse(query_result);
           // map.addLayer(dataLayer);
         },
+        error: function(error){
+          console.log(error);
+        }
 
       })
    }
