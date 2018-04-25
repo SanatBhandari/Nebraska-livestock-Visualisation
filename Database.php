@@ -52,7 +52,11 @@ if ($geoRS->num_rows > 0) {
 		$i = $i + 1;
     }
     $geoJson = json_encode($finalArray2, JSON_PRETTY_PRINT);
-    echo $geoJson;
+    var featuresText = '{"features":[{"latitude", "longtitude"}]}';
+    var formatter = new OpenLayers.Format.GeoJSON();
+    var features = formatter.read(featuresText);
+    console.log(features);
+    // echo $geoJson;
 } else {
     echo "0 results";
 }

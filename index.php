@@ -77,8 +77,13 @@
               <input class="livestockSelector" type = "checkbox" id ="l13" value="230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground"><label>Germ Oilcake
             </label>
             <br>
+<<<<<<< HEAD
             
               <input class="livestockSelector" type = "checkbox" id ="l14" value="110812 Starch, Corn (maize)"><label>Meat And Edible Meat Offal
+=======
+            <label>
+              <input class="livestockSelector checkbox" type = "checkbox" name ="l14" value="110812 Starch, Corn (maize)">Meat And Edible Meat Offal
+>>>>>>> 1c270d0175e68a17f72cc449c32e4f2b8c4d34d4
             </label>
             <br>
             
@@ -121,8 +126,7 @@
         view: new ol.View({
           center: [0, 0],
 		  zoom: 2,
-		  maxZoom: 3,
-		  minZoom: 1
+		  maxZoom: 3
         })
       });
 
@@ -135,6 +139,23 @@
 
       //TRY WITH A SIMPLE VERSION OF MAP, NO STYLING
 
+<<<<<<< HEAD
+=======
+      flightsSource = new ol.source.Vector({
+        wrapX: false,
+        attributions: 'Flight data by ' +
+              '<a href="http://openflights.org/data.html">OpenFlights</a>,',
+        loader: function() {
+          var url = 'location.json';
+          fetch(url).then(function(response) {
+            return response.json();
+          }).then(function(json) {
+            var flightsData = json.flights;
+            for (var i = 0; i < flightsData.length; i++) {
+              var flight = flightsData[i];
+              var from = flight[0];
+              var to = flight[1];
+>>>>>>> 1c270d0175e68a17f72cc449c32e4f2b8c4d34d4
 
       //
       // var flightsSource;
