@@ -26,18 +26,18 @@
         <!-- <form id="lstock" action="Database.php" method="get"> -->
         <!-- <form id="lstock"> -->
           <div class="checkbox">
-            
+
               <input class="livestockSelector" type="checkbox" id="l1" value="04 Dairy Prods; Birds Eggs; Honey; Ed Animal Pr Nesoi">
               <label>Bovine Animals, Live</label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l2" value="0102 Bovine Animals, Live"><label>Swine, Live</label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l3" value="0103 Swine, Live"><label>Chickens, Ducks, Geese, Turkeys, And Guineas, Live
             </label>
             <br>
-           
+
               <input class="livestockSelector" type = "checkbox" id ="l4" value="0105 Chickens, Ducks, Geese, Turkeys, And Guineas, Live"><label>Corn (maize)
             </label>
             <br>
@@ -45,54 +45,52 @@
               <input class="livestockSelector" type = "checkbox" id ="l5" value="1005 Corn (maize)"><label>Corn (maize) Seed, Certified, Excluding Sweet Corn
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l6" value="100510 Corn (maize) Seed, Certified, Excluding Sweet Corn"><label>Corn (maize), Other Than Seed Corn
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l7" value="100590 Corn (maize), Other Than Seed Corn"><label>Corn (maize) Flour
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l8" value="110220 Corn (maize) Flour"><label>Groats And Meal Of Corn (maize)
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l9" value="110423 Grains Worked (hulld Pearld Sliced Kibbld) Of Corn"><label>Grains (Worked) Of Corn
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l10" value="151521 Corn (maize) Oil, Crude, Not Chemically Modified"><label>Non- chemically modified crude Corn (maize) Oil
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l11" value="151529 Corn (maize) Oil, Refined, & Fractions, Not Modif"><label>Refined and fractions Corn (maize) Oil (Not Modified)
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l12" value="230210 Bran Sharps & Oth Residues Derived Frm Millng Corn"><label>Bran Sharps & Other Residues Derived From Millng Corn
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l13" value="230670 Corn Germ Oilcake Othr Solid Residue Wh/not Ground"><label>Germ Oilcake
             </label>
             <br>
-<<<<<<< HEAD
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l14" value="110812 Starch, Corn (maize)"><label>Meat And Edible Meat Offal
-=======
+
             <label>
               <input class="livestockSelector checkbox" type = "checkbox" name ="l14" value="110812 Starch, Corn (maize)">Meat And Edible Meat Offal
->>>>>>> 1c270d0175e68a17f72cc449c32e4f2b8c4d34d4
             </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l15" value="02 Meat And Edible Meat Offal"><label >Dairy Prods; Birds Eggs; Honey </label>
             <br>
-            
+
               <input class="livestockSelector" type = "checkbox" id ="l16" value="110313 Groats And Meal Of Corn (maize)"><label>Starch, Corn (maize)</label>
               <br>
-            
+
           </div>
           <div class="slider navOptionSlider">
             <input id="yearRange" type="range" min="2002" max="2017" value="2002" color="white"/>
@@ -139,8 +137,6 @@
 
       //TRY WITH A SIMPLE VERSION OF MAP, NO STYLING
 
-<<<<<<< HEAD
-=======
       flightsSource = new ol.source.Vector({
         wrapX: false,
         attributions: 'Flight data by ' +
@@ -155,7 +151,7 @@
               var flight = flightsData[i];
               var from = flight[0];
               var to = flight[1];
->>>>>>> 1c270d0175e68a17f72cc449c32e4f2b8c4d34d4
+
 
       //
       // var flightsSource;
